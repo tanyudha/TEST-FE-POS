@@ -1,0 +1,97 @@
+@use "./utils" as *;
+
+$line_height: 133%;
+$responsive_line_height: 120%;
+
+$h1_size: 58px;
+$h2_size: 44px;
+$h3_size: 34px;
+$h4_size: 24px;
+$h5_size: 18px;
+$p_size: 14px;
+$small_size: 10px;
+
+$responsive_h1_size: 24px;
+$responsive_h2_size: 20px;
+$responsive_h3_size: 18px;
+$responsive_h4_size: 14px;
+$responsive_h5_size: 12px;
+$responsive_p_size: 10px;
+$responsive_small_size: 8px;
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400");
+
+@mixin typo_h1($family: "Poppins", $weight: 800) {
+  font-size: $h1_size;
+  font-weight: $weight;
+  font-family: $family;
+  line-height: $line_height;
+  @media only screen and (max-width: $bp) {
+    font-size: $responsive_h1_size;
+    line-height: $responsive_line_height;
+  }
+}
+
+@mixin typo_h2($family: "Poppins", $weight: 800) {
+  font-size: $h2_size;
+  font-weight: $weight;
+  font-family: $family;
+  line-height: $line_height;
+  @media only screen and (max-width: $bp) {
+    font-size: $responsive_h2_size;
+    line-height: $responsive_line_height;
+  }
+}
+
+@mixin typo_h3($family: "Poppins", $weight: 600) {
+  font-size: $h3_size;
+  font-weight: $weight;
+  font-family: $family;
+  line-height: $line_height;
+  @media only screen and (max-width: $bp) {
+    font-size: $responsive_h3_size;
+    line-height: $responsive_line_height;
+  }
+}
+@mixin typo_h4($family: "Poppins", $weight: 500) {
+  font-size: $h4_size;
+  font-weight: $weight;
+  font-family: $family;
+  line-height: $line_height;
+  @media only screen and (max-width: $bp) {
+    font-size: $responsive_h4_size;
+    line-height: $responsive_line_height;
+  }
+}
+@mixin typo_h5($family: "Poppins", $weight: 400) {
+  font-size: $h5_size;
+  font-weight: $weight;
+  font-family: $family;
+  line-height: $line_height;
+  @media only screen and (max-width: $bp) {
+    font-size: $responsive_h5_size;
+    line-height: $responsive_line_height;
+  }
+}
+
+@mixin typo_p($family: "Poppins", $weight: 400) {
+  font-size: $p_size;
+  font-weight: $weight;
+  font-family: $family;
+  line-height: $line_height;
+  @media only screen and (max-width: $bp) {
+    font-size: $responsive_p_size;
+    line-height: $responsive_line_height;
+  }
+}
+
+@mixin typo_small($family: "Poppins", $weight: 200) {
+  font-size: $small_size;
+  font-weight: $weight;
+  font-family: $family;
+  line-height: $line_height;
+  @media only screen and (max-width: $bp) {
+    font-size: $responsive_small_size;
+    line-height: $responsive_line_height;
+  }
+}

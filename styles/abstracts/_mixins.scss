@@ -1,0 +1,92 @@
+@use "./colors";
+@use "./utils";
+
+@mixin setup_size($w: 100%, $h: 100%) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex_center($dir, $gap: 0, $primary: center, $secondary: center) {
+  display: flex;
+  align-items: $primary;
+  justify-content: $secondary;
+  flex-direction: $dir;
+  @if $dir == 'row' {
+    & > * {
+      margin: 0 $gap;
+    }
+  } @else {
+    & > * {
+      margin: $gap 0;
+    }
+  }
+}
+
+@mixin grid_center(
+  $dir,
+  $opt: 1fr,
+  $gap: 0,
+  $primary: center,
+  $secondary: center
+) {
+  display: grid;
+  gap: $gap;
+  align-items: $primary;
+  justify-content: $secondary;
+  @if $dir == 'row' {
+    grid-template-rows: $opt;
+  } @else {
+    grid-template-columns: $opt;
+  }
+}
+
+@mixin center_child() {
+  & > * {
+    @include setup_size();
+    @include flex_center(row);
+    margin: auto;
+  }
+}
+
+@mixin drop_shadow($x: 5px, $y: 5px, $blur: 5px, $color: colors.$black-alpha) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin text_shadow($x: 0px, $y: 0px, $blur: 5px, $color: colors.$black-alpha) {
+  text-shadow: $x $y $blur $color;
+}
+
+@mixin text_shadow_hard(
+  $x: 0px,
+  $y: 0px,
+  $blur: 5px,
+  $color: colors.$black-alpha-hard
+) {
+  text-shadow: $x $y $blur $color;
+}
+
+@mixin default_transition($s: 0.3s) {
+  transition: all $s ease;
+}
+
+@mixin absolute_center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin setup_background($url, $pos: center, $size: cover) {
+  background-image: $url;
+  background-position: $pos;
+  background-size: $size;
+  background-repeat: no-repeat;
+}
+
+@mixin horizontal_scroll() {
+  overflow: auto;
+  white-space: nowrap;
+  & > * {
+    display: inline-block;
+  }
+}
